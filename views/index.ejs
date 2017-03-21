@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
+    <script src="/animatedModal.js"></script>
+    <script src="/socket.io/socket.io.js"></script>
+    <link rel="stylesheet" href="style.css">
+    <script>
+     var socket = io.connect();
+     socket.on('updatechat', function (username, data) {
+     		$('#conversation').append('<b>'+username + ':</b> ' + data + '<br>');
+     	});
+  //     socket.on('connect', function(){
+	// 	socket.emit('adduser', prompt("What's your name?"));
+	// });
+      socket.on('updaterooms', function(rooms, current_room) {
+      		$('#rooms').empty();
+      		$.each(rooms, function(key, value) {
+      			if(value == current_room){
+      				$('#rooms').append('<div>' + value + '</div>');
+      			}
+      			else {
+      				$('#rooms').append('<div id="room"><a href="#" onclick="switchRoom(\''+value+'\')">' + value + '</a></div>');
+      			}
+      		});
+      	});
+        function switchRoom(room){
+          socket.emit('switchRoom', room);
+        }
+        socket.on('users', function(usernames){
+          console.log('in the users method');
+          $.each(usernames, function(key, value){
+            $('#users').append('<div>'+ value + '</div>');
+          })
+        })
+     $(function(){
+       $('#chatWrap').hide();
+
+       $('#setNick').submit(function(e){
+         e.preventDefault();
+         var username = $('#nickname').val();
+         socket.emit('addUser', username);
+         console.log(username);
+         $('#nickname').val('');
+         $('#nickWrap').hide();
+         $('#chatWrap').show();
+       })
+       $('#demo01').animatedModal();
+  // when the client clicks SEND
+  		$('#datasend').click( function() {
+  			var message = $('#data').val();
+  			$('#data').val('');
+  			// tell server to execute 'sendchat' and send along one parameter
+  			socket.emit('sendchat', message);
+  		});
+  		// when the client hits ENTER on their keyboard
+  		$('#data').keypress(function(e) {
+  			if(e.which == 13) {
+  				$(this).blur();
+  				$('#datasend').focus().click();
+  			}
+  		});
+      $('#room-name').submit(function(e){
+          e.preventDefault();
+          console.log('hello')
+          var name = $('#room_name_input').val();
+          console.log(name)
+          socket.emit('create', name)
+       });
+     })
+    </script>
+  </head>
+  <body>
+      <div id="nickWrap">
+        <p> enter a username </p>
+      <form id="setNick">
+  <input type="text" size="25" id="nickname"></input>
+  <input type="submit"></input>
+  </form>
+</div>
+<div id="chatWrap">
+  <div id="header">
+    <div id="side_bar">
+      <h2> users </h2>
+      <div id="users"></div>
+    </div>
+    <h1> rooms </h1>
+    <div id="rooms"></div>
+    <!-- <form id="room" method="POST" action=getaction(rooms)>
+      <submit> enter </submit>
+    </form> -->
+    <p> create room </p>
+  </div>
+    <section class="container">
+    <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
+          <div id="room creation"></div>
+          <form id = "room-name">
+          <input id="room_name_input"  type="text" style="width:200px;" />
+           <input type="submit"></input>
+         </form>
+      </div>
+      <div id="chat_box">
+        <div id="conversation"></div>
+          <p> chat away </p>
+          <input id="data" style="width:200px;" />
+          <input type="button" id="datasend" value="send" />
+      </div>
+  </body>
+</html>
