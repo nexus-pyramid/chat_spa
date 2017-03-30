@@ -3,6 +3,7 @@
   <head>
     <meta charset="utf-8">
     <title></title>
+    <link href="https://fonts.googleapis.com/css?family=Oswald" rel="stylesheet">
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/animate.css/3.2.0/animate.min.css">
     <script src="/animatedModal.js"></script>
@@ -37,19 +38,19 @@
           })
         })
      $(function(){
-       $('#chatWrap').hide();
+       $('#chat-wrap').hide();
 
-       $('#setNick').submit(function(e){
+       $('#set-nick').submit(function(e){
          e.preventDefault();
-         var username = $('#nickname').val();
+         var username = $('#username').val();
          socket.emit('addUser', username);
          console.log(username);
          $('#nickname').val('');
-         $('#nickWrap').hide();
-         $('#chatWrap').show();
+         $('#logo').hide();
+         $('.nick-wrap').hide();
+         $('#chat-wrap').show();
        })
-       $('#demo01').animatedModal();
-  // when the client clicks SEND
+       // when the client clicks SEND
   		$('#datasend').click( function() {
   			var message = $('#data').val();
   			$('#data').val('');
@@ -74,26 +75,25 @@
     </script>
   </head>
   <body>
-      <div id="nickWrap">
-        <p> enter a username </p>
-      <form id="setNick">
-  <input type="text" size="25" id="nickname"></input>
-  <input type="submit"></input>
-  </form>
-</div>
-<div id="chatWrap">
-  <div id="header">
-    <div id="side_bar">
-      <h2> users </h2>
-      <div id="users"></div>
+    <div id="logo"><h1> Ramble </h1></div>
+    <div class="nick-wrap">
+      <div class="rainbow"></div>
+      <h3>please enter a username </h3>
+      <form id="set-nick">
+        <input type="text" size="25" id="username"></input>
+        <input type="submit"></input>
+      </form>
     </div>
-    <h1> rooms </h1>
-    <div id="rooms"></div>
-    <!-- <form id="room" method="POST" action=getaction(rooms)>
-      <submit> enter </submit>
-    </form> -->
-    <p> create room </p>
-  </div>
+  <div id="chat-wrap">
+    <div id="header">
+      <div id="side_bar">
+        <h2> users </h2>
+        <div id="users"></div>
+      </div>
+      <h1> rooms </h1>
+      <div id="rooms"></div>
+      <p> create room </p>
+    </div>
     <section class="container">
     <div style="float:left;width:300px;height:250px;overflow:scroll-y;padding:10px;">
           <div id="room creation"></div>
@@ -108,5 +108,7 @@
           <input id="data" style="width:200px;" />
           <input type="button" id="datasend" value="send" />
       </div>
+    </section>
+    </div>
   </body>
 </html>
