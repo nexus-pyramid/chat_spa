@@ -1,0 +1,18 @@
+{
+  "name": "Ramble",
+  "version": "1.0",
+  "license": "",
+  "main": "",
+  "ignore": [],
+  "dependencies": {
+    "angular": "~1.6.3",
+    "angular-route": "~1.6.3",
+    "angularjs-geolocation": "~0.1.1",
+    "ng-file-upload-shim": "~12.2.13",
+    "angular-bootstrap": "^2.5.0",
+    "ngGeolocation": ">=0.0.2",
+    "jquery": "^3.2.1",
+    "toastr":"^2.1.1",
+    "socket.io-client":"^1.7.2"
+  }
+}
