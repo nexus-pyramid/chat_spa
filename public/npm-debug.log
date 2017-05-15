@@ -1,0 +1,49 @@
+0 info it worked if it ends with ok
+1 verbose cli [ 'C:\\Program Files\\nodejs\\node.exe',
+1 verbose cli   'C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js',
+1 verbose cli   'run',
+1 verbose cli   'build-css' ]
+2 info using npm@3.10.9
+3 info using node@v6.9.2
+4 verbose run-script [ 'prebuild-css', 'build-css', 'postbuild-css' ]
+5 info lifecycle flow@1.0.0~prebuild-css: flow@1.0.0
+6 silly lifecycle flow@1.0.0~prebuild-css: no script for prebuild-css, continuing
+7 info lifecycle flow@1.0.0~build-css: flow@1.0.0
+8 verbose lifecycle flow@1.0.0~build-css: unsafe-perm in lifecycle true
+9 verbose lifecycle flow@1.0.0~build-css: PATH: C:\Program Files\nodejs\node_modules\npm\bin\node-gyp-bin;C:\Users\shook\OneDrive\Documents\lets_get_it\chat_spa\node_modules\.bin;C:\Users\shook\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\local\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\usr\bin;C:\Program Files\Git\mingw64\bin;C:\Program Files\Git\usr\bin;C:\Users\shook\bin;C:\Users\shook\AppData\Roaming\npm\bower;C:\Program Files\nodejs;C:\Windows\System32;C:\Program Files\Intel\WiFi\bin;C:\Program Files\Common Files\Intel\WirelessCommon;C:\Program Files (x86)\OpenVPN\bin;C:\Ruby22\bin;C:\Users\shook\AppData\Roaming\npm\bower;C:\Users\shook\AppData\Roaming\npm;C:\Windows\System32;C:\Users\shook\AppData\Local\atom\bin;C:\Program Files\Git\usr\bin\vendor_perl;C:\Program Files\Git\usr\bin\core_perl
+10 verbose lifecycle flow@1.0.0~build-css: CWD: C:\Users\shook\OneDrive\Documents\lets_get_it\chat_spa
+11 silly lifecycle flow@1.0.0~build-css: Args: [ '/d /s /c',
+11 silly lifecycle   'node-sass --output-style compressed -o public/css public/scss' ]
+12 silly lifecycle flow@1.0.0~build-css: Returned: code: 1  signal: null
+13 info lifecycle flow@1.0.0~build-css: Failed to exec build-css script
+14 verbose stack Error: flow@1.0.0 build-css: `node-sass --output-style compressed -o public/css public/scss`
+14 verbose stack Exit status 1
+14 verbose stack     at EventEmitter.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\lifecycle.js:255:16)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at EventEmitter.emit (events.js:191:7)
+14 verbose stack     at ChildProcess.<anonymous> (C:\Program Files\nodejs\node_modules\npm\lib\utils\spawn.js:40:14)
+14 verbose stack     at emitTwo (events.js:106:13)
+14 verbose stack     at ChildProcess.emit (events.js:191:7)
+14 verbose stack     at maybeClose (internal/child_process.js:877:16)
+14 verbose stack     at Process.ChildProcess._handle.onexit (internal/child_process.js:226:5)
+15 verbose pkgid flow@1.0.0
+16 verbose cwd C:\Users\shook\OneDrive\Documents\lets_get_it\chat_spa\public
+17 error Windows_NT 10.0.14393
+18 error argv "C:\\Program Files\\nodejs\\node.exe" "C:\\Program Files\\nodejs\\node_modules\\npm\\bin\\npm-cli.js" "run" "build-css"
+19 error node v6.9.2
+20 error npm  v3.10.9
+21 error code ELIFECYCLE
+22 error flow@1.0.0 build-css: `node-sass --output-style compressed -o public/css public/scss`
+22 error Exit status 1
+23 error Failed at the flow@1.0.0 build-css script 'node-sass --output-style compressed -o public/css public/scss'.
+23 error Make sure you have the latest version of node.js and npm installed.
+23 error If you do, this is most likely a problem with the flow package,
+23 error not with npm itself.
+23 error Tell the author that this fails on your system:
+23 error     node-sass --output-style compressed -o public/css public/scss
+23 error You can get information on how to open an issue for this project with:
+23 error     npm bugs flow
+23 error Or if that isn't available, you can get their info via:
+23 error     npm owner ls flow
+23 error There is likely additional logging output above.
+24 verbose exit [ 1, true ]

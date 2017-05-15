@@ -4,6 +4,30 @@ $font-family: 'Oswald', sans-serif;
 // end variables
 
 //nickname
+body {
+  background-color: #64FFDA;
+    overflow-y: auto;
+    overflow-x: auto;
+}
+.room {
+  padding-top: 100px;
+  margin: 10px;
+  text-align: center;
+  align-content: center;
+  background-color: black;
+   float: left;
+   width: 200px;
+   max-height: 300px;
+  a {
+    text-decoration: none;
+     margin-top: 50px;
+     background-color: #64FFDA; 
+  }
+
+}
+li:nth-child(even) {
+  background-color: grey;
+}
 .nick-wrap {
   font: 100% $font-family;
   font-size: 25px;
@@ -50,7 +74,7 @@ $font-family: 'Oswald', sans-serif;
   position: absolute;
   margin: auto;
   color: #000;
-  top: 15%;
+  top: 10%;
   right: 0;
   bottom: 0;
   left: 0;
@@ -64,9 +88,42 @@ $font-family: 'Oswald', sans-serif;
 
 }
 .rainbow {
+  border-top-left-radius: 3px;
+  border-top-right-radius: 3px;
   width: 100%;
-  height: 15px;
+  height: 40px;
   animation-name: rainbowcolor;
   animation-duration: 2.0s;
   animation-iteration-count: infinite;
+}
+.header {
+  top: 0;
+  left: 0;
+  margin: auto;
+  width: 20%;
+  height: 60%;
+  border-style: dashed;
+  border-color: black;
+}
+.chat-wrap {
+  font: 100% $font-family;
+  width: 100%;
+  height: 100%;
+  background-color: white;
+}
+.side_bar {
+  float: left;
+  width: 30%;
+  border-style: solid;
+  border-color: black;
+  height: 50%
+}
+
+.room-container {
+  float: left;
+  width: 69%;
+  height: 50%;
+  border-style: solid;
+  border-color: black;
+  overflow: auto;
 }
