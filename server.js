@@ -28,7 +28,10 @@ app.use(session(sessionConfig));
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use('/bower_components',  express.static( path.join(__dirname, '/bower_components')));
-var server = http.createServer(app).listen('3000', '127.0.0.1');
+// var server = http.createServer(app).listen('8000', '127.0.0.1');
+var server = app.listen( 8000, function() {
+    console.log('server running on port 8000')
+});
 chatServer.listen(server);
 
 app.get('/', function(req, res){
